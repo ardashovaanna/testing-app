@@ -1,45 +1,47 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, Image, Button } from "react-native";
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from "react-native";
 class SecondPage extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <View style={styles.imagecontainer}>
+        <Image
+        source={{
+          uri:
+            'https://static.vecteezy.com/system/resources/previews/000/351/887/original/vector-male-student-icon.jpg',
+        }}
+        style={{ width: 200, height: 200 }}
+        
+      />
+      </View>
       <View style={styles.topVoid} />
-      <Text style={styles.loginInTitle}>Входной контроль по информатике</Text>
-
-      <View style={styles.loginInWith}>
-        <View style={{ width: 50, height: 50, backgroundColor: "red" }} />
-        <View style={{ width: 50, height: 50, backgroundColor: "green" }} />
-        <View style={{ width: 50, height: 50, backgroundColor: "blue" }} />
-      </View>
-
-      <View style={styles.lineBreak}>
-        <Text justifyContent="center">
-          ------------------------------------------------------------
-        </Text>
-      </View>
-
+      
+    
       <View style={styles.loginForm}>
         <TextInput
           style={styles.textInputs}
           textContentType="Username"
-          value="ФИО"
+          placeholder="ФИО"
+          placeholderTextColor="grey"
+
         />
         <TextInput
           style={styles.textInputs}
           textContentType="Group"
-          value="Группа"
+          placeholder="Номер группы"
+          placeholderTextColor="grey"
+
         />
        
-        <Button
-          style={styles.loginButton}
-          title="LOGIN"
-          onPress={() => this.props.navigation.navigate('FirstPage')}
+     
 
-        />
       </View>
+      <TouchableOpacity
+      style={styles.button}
+      onPress={() => this.props.navigation.navigate('Тестирование')}>
+      <Text style={styles.btnText}> Начать </Text>
+    </TouchableOpacity>
 
-      <Text style={styles.signUpLink}>Я Преподаватель</Text>
     </View>
   );
 }
@@ -56,33 +58,53 @@ topVoid: {
   flex: 0.5,
   width: 150
 },
-loginInTitle: {
-  fontSize: 22,
-  flex: 1
+
+imagecontainer: {
+marginTop: 100,
+alignItems: 'center',
+justifyContent: 'center',
+flex: 1
 },
-loginInWith: {
-  flex: 1,
-  width: 250,
-  flexDirection: "row",
-  justifyContent: "space-evenly"
-},
-lineBreak: {
-  flex: 0.3
-},
+
 loginForm: {
   flex: 3,
-  flexDirection: "column"
+  flexDirection: "column",
+  paddingTop: 20,
+  paddingBottom: 20,
+  marginTop: 100
+
 },
 textInputs: {
   width: 250,
   height: 60,
-  borderColor: "gray"
+  fontSize: 18,
+  borderColor:"#808080",
+  borderWidth: 1,
+    marginBottom: 10,
+    paddingHorizontal: 8,
+    paddingVertical: 6,
+    backgroundColor: "#FFFFFF",
+    flexDirection: "row",
+    color: "grey",
 },
-loginButton: {
 
-},
-signUpLink: {
-  flex: 1
-}
+  button: {
+    width: 250,
+    height: 60,
+    fontSize: 18,
+    alignItems: 'center',
+    backgroundColor: '#000080',
+    textShadowColor: '#FFFFFF',
+    padding: 10,
+    height: 45,
+    borderRadius: 8,
+    elevation: 3,
+    justifyContent: "center",
+    marginTop: 80,
+    marginBottom:50
+  },
+  btnText: {
+    color: "#fff",
+  },
 });
 export default SecondPage;

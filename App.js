@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import FirstPage from './pages/FirstPage';
 import SecondPage from './pages/SecondPage';
+import start_student from './pages/start_student';
 
 
 const Stack = createStackNavigator();
@@ -17,14 +18,17 @@ class App extends React.Component {
         <Stack.Navigator>
        
           <Stack.Screen
-            name="Home"
+            name="Главная"
             component={FirstPage}
           />
           <Stack.Screen
-            name="Student"
+            name="Студент"
             component={SecondPage}
           />
-         
+          <Stack.Screen
+            name="Тестирование"
+            component={start_student}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     );

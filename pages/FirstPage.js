@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, TouchableOpacity } from 'react-native';
 
 class FirstPage extends React.Component {
 
@@ -10,26 +10,25 @@ class FirstPage extends React.Component {
       <Image
         source={{
           uri:
-            'https://sun9-38.userapi.com/impf/c846018/v846018939/16cc6e/OKsqTDUuE34.jpg?size=516x494&quality=96&sign=10eb35c746d929def7823f9d95faf830&type=album',
+            'https://www.pngkey.com/png/detail/400-4003680_registration-for-under-graduate-student-icon-png.png',
         }}
         style={{ width: 200, height: 200 }}
         
       />
 
           <Text>Выберите тип пользователя:</Text>
-          
-          <Button style={styles.btnstudent}
-            title="Студент"
-            onPress={() =>
-              this.props.navigation.navigate('Student')
-            }
-          />
-          <Button
-            title="Преподаватель"
-            onPress={() =>
-              this.props.navigation.navigate('startTest')
-            }
-          />
+
+    <TouchableOpacity
+      style={styles.button}
+      onPress={() => this.props.navigation.navigate('Студент')}>
+      <Text style={styles.btnText}> Студент </Text>
+    </TouchableOpacity> 
+        
+    <TouchableOpacity
+      style={styles.button}
+      onPress={() => this.props.navigation.navigate('Student')}>
+      <Text style={styles.btnText}> Преподаватель </Text>
+    </TouchableOpacity> 
         </View>
       );
     }
@@ -44,7 +43,24 @@ const styles = {
     fontFamily: 'Roboto',
     fontSize: 22,
   },
-
+  button: {
+    width: 250,
+    height: 60,
+    fontSize: 18,
+    alignItems: 'center',
+    backgroundColor: '#000080',
+    textShadowColor: '#FFFFFF',
+    padding: 10,
+    height: 45,
+    borderRadius: 8,
+    elevation: 3,
+    justifyContent: "center",
+    marginTop: 30,
+    marginBottom:10
+  },
+  btnText: {
+    color: "#fff",
+  },
   
 };
 
