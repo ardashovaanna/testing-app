@@ -9,12 +9,6 @@ class SecondPage extends React.Component {
 
       <View style={styles.loginInWith}>
         <View style={{ width: 50, height: 50, backgroundColor: "red" }} />
-        {/* <Image
-          source={{
-            uri:
-              "./assets/img/facebook-logo.png"
-          }}
-        /> */}
         <View style={{ width: 50, height: 50, backgroundColor: "green" }} />
         <View style={{ width: 50, height: 50, backgroundColor: "blue" }} />
       </View>
@@ -61,26 +55,21 @@ container: {
 topVoid: {
   flex: 0.5,
   width: 150
-  // backgroundColor: "#ff0"
 },
 loginInTitle: {
-  // backgroundColor: "red",
+  fontSize: 22,
   flex: 1
 },
 loginInWith: {
-  // backgroundColor: "#0ff",
   flex: 1,
   width: 250,
   flexDirection: "row",
   justifyContent: "space-evenly"
-  // alignItems: "center"
 },
 lineBreak: {
-  // backgroundColor: "red",
   flex: 0.3
 },
 loginForm: {
-  // backgroundColor: "#ff0",
   flex: 3,
   flexDirection: "column"
 },
@@ -90,11 +79,9 @@ textInputs: {
   borderColor: "gray"
 },
 loginButton: {
-  // backgroundColor: "green",
-  // flex: 3
+
 },
 signUpLink: {
-  // backgroundColor: "#fa0",
   flex: 1
 }
 });
