@@ -4,8 +4,9 @@ import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import FirstPage from './pages/FirstPage';
-import SecondPage from './pages/SecondPage';
-import start_student from './pages/start_student';
+import SecondPage from './pages/student/SecondPage';
+import start_student from './pages/student/start_student';
+import start_teach from './pages/teacher/start_teach';
 
 
 const Stack = createStackNavigator();
@@ -29,6 +30,11 @@ class App extends React.Component {
             name="Тестирование"
             component={start_student}
           />
+           <Stack.Screen
+            name="Преподаватель"
+            component={start_teach}
+          />
+
         </Stack.Navigator>
       </NavigationContainer>
     );

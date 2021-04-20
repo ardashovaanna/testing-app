@@ -26,7 +26,7 @@ class FirstPage extends React.Component {
         
     <TouchableOpacity
       style={styles.button}
-      onPress={() => this.props.navigation.navigate('Student')}>
+      onPress={() => this.props.navigation.navigate('Преподаватель')}>
       <Text style={styles.btnText}> Преподаватель </Text>
     </TouchableOpacity> 
         </View>
