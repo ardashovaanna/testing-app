@@ -9,12 +9,7 @@ class start_student extends React.Component {
 
       <View style={styles.loginInWith}>
         <View style={{ width: 50, height: 50, backgroundColor: "red" }} />
-        {/* <Image
-          source={{
-            uri:
-              "./assets/img/facebook-logo.png"
-          }}
-        /> */}
+    
         <View style={{ width: 50, height: 50, backgroundColor: "green" }} />
         <View style={{ width: 50, height: 50, backgroundColor: "blue" }} />
       </View>
