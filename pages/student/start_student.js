@@ -4,7 +4,9 @@ class start_student extends React.Component {
   render() {
     return (
   <View style={styles.container}>
-    
+  <View style={styles.num_quiz}>
+  <Text style={styles.num_quiz}>Вопрос № </Text>
+    </View>  
   <View style={styles.imagecontainer}>
     <Text>Вопрос </Text>
   </View>
@@ -34,12 +36,22 @@ class start_student extends React.Component {
 }
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "flex-end"
+      flex: 1,
+      backgroundColor: '#f5f5f5',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontFamily: 'Roboto',
+      fontSize: 22,
       },
-      
+      num_quiz:{
+fontFamily: 'Times New Roman',
+fontSize: 22,
+alignContent: 'center',
+paddingBottom: 10,
+paddingTop: 10,
+backgroundColor: '#D2691E',
+width: 350
+      },
       imagecontainer: {
       marginBottom: 300,
       alignItems: 'center',
