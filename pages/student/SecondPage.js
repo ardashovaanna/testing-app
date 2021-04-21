@@ -1,7 +1,23 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from "react-native";
 class SecondPage extends React.Component {
+ 
+  constructor(props) {
+ 
+    super(props)
+ 
+    this.state = {
+ 
+      username: '',
+      group:'',
+ 
+    }
+    }
+    UserLoginFunction = () =>{
+      const { username }  = this.state ;
+   const { group }  = this.state ;} 
   render() {
+  
     return (
       <View style={styles.container}>
         <View style={styles.imagecontainer}>
@@ -23,14 +39,14 @@ class SecondPage extends React.Component {
           textContentType="Username"
           placeholder="ФИО"
           placeholderTextColor="grey"
-
+          onChangeText={username => this.setState({username})}
         />
         <TextInput
           style={styles.textInputs}
           textContentType="Group"
           placeholder="Номер группы"
           placeholderTextColor="grey"
-
+          onChangeText={group => this.setState({group})}
         />
        
      
