@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Image, TouchableOpacity } from 'react-native';
-
+import { Text, View, Button, Image, TouchableOpacity } from 'react-native';
+import SwitchSelector from "react-native-switch-selector";
 class FirstPage extends React.Component {
 
     render() {
@@ -17,7 +17,7 @@ class FirstPage extends React.Component {
       />
 
           <Text>Выберите тип пользователя:</Text>
-
+   
     <TouchableOpacity
       style={styles.button}
       onPress={() => this.props.navigation.navigate('Студент')}>

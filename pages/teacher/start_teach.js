@@ -38,7 +38,7 @@ class start_teach extends React.Component {
       </View>
       <TouchableOpacity
       style={styles.button}
-      onPress={() => this.props.navigation.navigate('Тестирование')}>
+      onPress={() => this.props.navigation.navigate('Журнал')}>
       <Text style={styles.btnText}> Войти </Text>
     </TouchableOpacity>
 
@@ -50,9 +50,11 @@ class start_teach extends React.Component {
 const styles = StyleSheet.create({
 container: {
   flex: 1,
-  backgroundColor: "#fff",
-  alignItems: "center",
-  justifyContent: "flex-end"
+  backgroundColor: '#f5f5f5',
+  alignItems: 'center',
+  justifyContent: 'center',
+  fontFamily: 'Roboto',
+  fontSize: 22,
 },
 topVoid: {
   flex: 0.5,

@@ -7,6 +7,7 @@ import FirstPage from './pages/FirstPage';
 import SecondPage from './pages/student/SecondPage';
 import start_student from './pages/student/start_student';
 import start_teach from './pages/teacher/start_teach';
+import viewing_results from './pages/teacher/viewing_results';
 
 
 const Stack = createStackNavigator();
@@ -34,7 +35,10 @@ class App extends React.Component {
             name="Преподаватель"
             component={start_teach}
           />
-
+          <Stack.Screen
+            name="Журнал"
+            component={viewing_results}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     );
