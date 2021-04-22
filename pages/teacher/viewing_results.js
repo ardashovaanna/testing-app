@@ -61,6 +61,7 @@ class viewing_results extends React.Component {
       <View style={styles.container}>
         <View style={styles.header}>
   <Text  style={styles.student}>Имя преподавателя</Text>  
+  
         </View>  
         <FlatList
           style={styles.flat}
