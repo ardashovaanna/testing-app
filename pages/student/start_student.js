@@ -1,20 +1,25 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, CheckBox, Text, TextInput, View, Image, TouchableOpacity } from "react-native";
+import { Dimensions } from 'react-native'
 class start_student extends React.Component {
   render() {
     return (
   <View style={styles.container}>
-  <View style={styles.num_quiz}>
-  <Text  style={styles.quizText}>Вопрос № </Text>
-    </View>  
+ 
+  <View style={styles.header}>
+  <Text  style={styles.student}>Имя студента</Text>  
+        </View>   
+
   <View style={styles.imagecontainer}>
+  <Text  style={styles.quizText}>Вопрос № </Text>  
     <Text>Вопрос </Text>
   </View>
   <View style={styles.btncontainer}>
+  
   <TouchableOpacity
       style={styles.button}>
       <Text style={styles.btnText}> ответ 1 </Text>
-    </TouchableOpacity>
+    </TouchableOpacity> 
     <TouchableOpacity
       style={styles.button}>
       <Text style={styles.btnText}> ответ 2 </Text>
@@ -35,6 +40,7 @@ class start_student extends React.Component {
 }
 }
 const styles = StyleSheet.create({
+
     container: {
       flex: 1,
       backgroundColor: '#f5f5f5',
@@ -42,22 +48,36 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       fontFamily: 'Roboto',
       fontSize: 22,
+      width: Dimensions.get('window').width,
+
       },
-      num_quiz:{
-fontFamily: 'Roboto',
-fontSize: 22,
-alignContent: 'center',
-paddingBottom: 10,
-paddingTop: 10,
-backgroundColor: '#FF8C00',
-width: 350
-      },
-      quizText: {
-        color: "#fff",
+
+
+    header:{
+        fontFamily: 'Roboto',
+        fontSize: 22,
+        alignContent: 'center',
+        paddingBottom: 10,
+        paddingTop: 10,
+        backgroundColor: '#FF8C00',
+        width: Dimensions.get('window').width,
+        },
+    student:{
+      color: '#FFFFFF',
+      fontSize: 18,
+      fontWeight: "bold",
+      marginLeft: 20
+    },
+
+     quizText: {
+        color: '#000080',
         fontSize: 18,
-        paddingLeft: 20,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        alignContent: 'center',
+        marginBottom: 20
       },
+
+
       imagecontainer: {
       marginBottom: 300,
       alignItems: 'center',
@@ -65,7 +85,8 @@ width: 350
       flex: 1,
       marginBottom: 30,
       backgroundColor: '#fff',
-      width: 350
+      width: Dimensions.get('window').width,
+
       },
       btncontainer:{
 marginBottom: 30,

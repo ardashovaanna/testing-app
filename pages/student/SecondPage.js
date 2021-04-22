@@ -2,20 +2,6 @@ import React from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from "react-native";
 class SecondPage extends React.Component {
  
-  constructor(props) {
- 
-    super(props)
- 
-    this.state = {
- 
-      username: '',
-      group:'',
- 
-    }
-    }
-    UserLoginFunction = () =>{
-      const { username }  = this.state ;
-   const { group }  = this.state ;} 
   render() {
   
     return (
