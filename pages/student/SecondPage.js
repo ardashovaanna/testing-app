@@ -1,7 +1,29 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from "react-native";
+import axios from 'react-native-axios'
+
+
 class SecondPage extends React.Component {
- 
+
+  state={
+    username:"",
+    group:""
+  }
+
+ postData() {
+  axios.post('http://192.168.123.31:8000/find',{
+    username: this.state.username,
+    group: this.state.group
+  })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+}
+
+
   render() {
   
     return (
@@ -17,8 +39,8 @@ class SecondPage extends React.Component {
       />
       </View>
       <View style={styles.topVoid} />
-      
-    
+
+
       <View style={styles.loginForm}>
         <TextInput
           style={styles.textInputs}
@@ -26,6 +48,7 @@ class SecondPage extends React.Component {
           placeholder="ФИО"
           placeholderTextColor="grey"
           onChangeText={username => this.setState({username})}
+
         />
         <TextInput
           style={styles.textInputs}
@@ -33,6 +56,7 @@ class SecondPage extends React.Component {
           placeholder="Номер группы"
           placeholderTextColor="grey"
           onChangeText={group => this.setState({group})}
+
         />
        
      
@@ -40,7 +64,8 @@ class SecondPage extends React.Component {
       </View>
       <TouchableOpacity
       style={styles.button}
-      onPress={() => this.props.navigation.navigate('Тестирование')}>
+      // onPress={() => this.props.navigation.navigate('Тестирование')}>
+      onPress={() => this.postData()}>
       <Text style={styles.btnText}> Начать </Text>
     </TouchableOpacity>
 
