@@ -2,6 +2,7 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { StackActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import FirstPage from './pages/FirstPage';
 import SecondPage from './pages/student/SecondPage';
@@ -9,7 +10,8 @@ import start_student from './pages/student/start_student';
 import start_teach from './pages/teacher/start_teach';
 import viewing_results from './pages/teacher/viewing_results';
 import mark from './pages/student/mark';
-
+import ProgressPage from './pages/ProgressPage';
+import splashscreen from './pages/splashscreen';
 
 const Stack = createStackNavigator();
 
@@ -17,12 +19,19 @@ class App extends React.Component {
 
   render() {
     return (
+      
       <NavigationContainer>
-        <Stack.Navigator>
-       
-          <Stack.Screen
+        <Stack.Navigator
+    
+>
+        <Stack.Screen  options={{headerShown: false}}
+            name="Progress"
+            component={ProgressPage}
+          /> 
+          <Stack.Screen options={{headerShown: false}}
             name="Главная"
             component={FirstPage}
+            
           />
           <Stack.Screen
             name="Студент"
@@ -57,6 +66,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+
   },
 });
 
