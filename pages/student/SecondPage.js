@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from "react-native";
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image, ActivityIndicator } from "react-native";
 class SecondPage extends React.Component {
  
   render() {
@@ -25,14 +25,12 @@ class SecondPage extends React.Component {
           textContentType="Username"
           placeholder="ФИО"
           placeholderTextColor="grey"
-          onChangeText={username => this.setState({username})}
         />
         <TextInput
           style={styles.textInputs}
           textContentType="Group"
           placeholder="Номер группы"
           placeholderTextColor="grey"
-          onChangeText={group => this.setState({group})}
         />
        
      
