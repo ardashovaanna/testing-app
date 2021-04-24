@@ -5,7 +5,7 @@ class FirstPage extends React.Component {
 
     render() {
       return (
-        
+
         <View style={styles.container}>
       <Image
         source={{
@@ -42,6 +42,7 @@ const styles = {
     justifyContent: 'center',
     fontFamily: 'Roboto',
     fontSize: 22,
+  
   },
   button: {
     width: 250,

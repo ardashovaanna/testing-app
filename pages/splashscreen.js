@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import FirstPage from './FirstPage';
+import { Dimensions } from 'react-native'
 
 const splashscreen = () => {
   const [align, setAlign] = useState('center');
@@ -8,7 +9,9 @@ const splashscreen = () => {
 
   setTimeout(() => {
   setAlignsecond(true); 
-  }, 3000, FirstPage);
+  }, 3000);
+  
+
 
 
   return (
@@ -33,8 +36,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    flexDirection: 'row',
-    marginHorizontal: 40,
+    backgroundColor: '#fff',
+    width: Dimensions.get('window').width,
+
   },
 });
 export default splashscreen;

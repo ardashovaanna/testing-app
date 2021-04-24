@@ -1,7 +1,8 @@
 import React from 'react';
+
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from "react-native";
 import axios from 'react-native-axios';
-
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image, ActivityIndicator } from "react-native";
 
 class SecondPage extends React.Component {
 
@@ -53,7 +54,6 @@ class SecondPage extends React.Component {
           placeholder="ФИО"
           placeholderTextColor="grey"
           onChangeText={username => this.setState({username})}
-
         />
         <TextInput
           style={styles.textInputs}
@@ -61,7 +61,6 @@ class SecondPage extends React.Component {
           placeholder="Номер группы"
           placeholderTextColor="grey"
           onChangeText={group => this.setState({group})}
-
         />
        
      
