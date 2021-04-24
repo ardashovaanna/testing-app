@@ -11,11 +11,15 @@ import viewing_results from './pages/teacher/viewing_results';
 import mark from './pages/student/mark';
 
 
+
 const Stack = createStackNavigator();
 
 class App extends React.Component {
 
+
+
   render() {
+
     return (
       <NavigationContainer>
         <Stack.Navigator>
@@ -27,6 +31,7 @@ class App extends React.Component {
           <Stack.Screen
             name="Студент"
             component={SecondPage}
+
           />
           <Stack.Screen
             name="Тестирование"

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from "react-native";
-import axios from 'react-native-axios'
+import axios from 'react-native-axios';
 
 
 class SecondPage extends React.Component {
@@ -10,20 +10,25 @@ class SecondPage extends React.Component {
     group:""
   }
 
- postData() {
-  axios.post('http://192.168.123.31:8000/find',{
+ postData = () => {
+    let self = this
+  axios.post('http://192.168.0.5:8000/find',{
     username: this.state.username,
     group: this.state.group
   })
       .then(function (response) {
-        console.log(response);
+        console.log(response.data);
+        if (response.data === true){
+          console.log('Студент обнаружен')
+              self.props.navigation.navigate('Тестирование')
+        }else {
+          console.log('Студент не обнаружен')
+        }
       })
       .catch(function (error) {
         console.log(error);
       });
 }
-
-
   render() {
   
     return (

@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="587678ae-e7fc-414d-af71-c937bf3f7517" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/student/SecondPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/student/SecondPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +23,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../back" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -41,7 +43,9 @@
       <workItem from="1619000237780" duration="244000" />
       <workItem from="1619000532422" duration="732000" />
       <workItem from="1619143312343" duration="301000" />
-      <workItem from="1619143614595" duration="3638000" />
+      <workItem from="1619143614595" duration="13610000" />
+      <workItem from="1619237632061" duration="2952000" />
+      <workItem from="1619264663529" duration="4111000" />
     </task>
     <servers />
   </component>
@@ -49,10 +53,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1619143610955">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1619237647263">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1619143610955" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1619237647263" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1619144682377">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
