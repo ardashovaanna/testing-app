@@ -1,6 +1,31 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from "react-native";
+import axios from 'react-native-axios';
 class start_teach extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state={
+      usermame:'',
+      password:'',
+    }
+
+
+  }
+postReq(){
+    axios.post('http://192.168.8.101:8000/find-teacher',{
+  username: this.state.username,
+  password: this.state.password
+})
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (err) {
+      console.log(err)
+    });}
+
+
+
   render() {
     return (
       <View style={styles.container}>
@@ -23,6 +48,7 @@ class start_teach extends React.Component {
           textContentType="Login"
           placeholder="Логин"
           placeholderTextColor="grey"
+          onChangeText={username => this.setState({username})}
 
         />
         <TextInput
@@ -30,6 +56,7 @@ class start_teach extends React.Component {
           textContentType="Password"
           placeholder="Пароль"
           placeholderTextColor="grey"
+          onChangeText={password => this.setState({password})}
 
         />
        
@@ -38,7 +65,8 @@ class start_teach extends React.Component {
       </View>
       <TouchableOpacity
       style={styles.button}
-      onPress={() => this.props.navigation.navigate('Журнал')}>
+      // onPress={() => this.props.navigation.navigate('Журнал')}>
+        onPress={() => this.postReq('Журнал')}>
       <Text style={styles.btnText}> Войти </Text>
     </TouchableOpacity>
 
@@ -93,7 +121,6 @@ textInputs: {
 
   button: {
     width: 250,
-    height: 60,
     fontSize: 18,
     alignItems: 'center',
     backgroundColor: '#000080',

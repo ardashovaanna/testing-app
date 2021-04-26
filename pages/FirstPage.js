@@ -1,6 +1,5 @@
 import React from 'react';
-import { Text, View, Button, Image, TouchableOpacity } from 'react-native';
-import SwitchSelector from "react-native-switch-selector";
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 class FirstPage extends React.Component {
 
     render() {
@@ -46,7 +45,6 @@ const styles = {
   },
   button: {
     width: 250,
-    height: 60,
     fontSize: 18,
     alignItems: 'center',
     backgroundColor: '#000080',
