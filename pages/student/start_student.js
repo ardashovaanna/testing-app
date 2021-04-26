@@ -1,14 +1,18 @@
 import React from 'react';
 import { StyleSheet, CheckBox, Text, TextInput, View, Image, TouchableOpacity } from "react-native";
 import { Dimensions } from 'react-native'
-class start_student extends React.Component {
-  render() {
+import {ContextData} from "../../Context";
+import SecondPage from "./SecondPage";
+
+
+class Start_student extends React.Component {
+  render(props) {
     return (
   <View style={styles.container}>
- 
   <View style={styles.header}>
-  <Text  style={styles.student}>Имя студента</Text>  
-        </View>   
+  <Text  style={styles.student}>{this.context.userName}    {this.context.group}</Text>
+        </View>
+
 
   <View style={styles.imagecontainer}>
   <Text  style={styles.quizText}>Вопрос № </Text>  
@@ -39,6 +43,7 @@ class start_student extends React.Component {
 
 }
 }
+Start_student.contextType = ContextData;
 const styles = StyleSheet.create({
 
     container: {
@@ -83,7 +88,6 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       flex: 1,
-      marginBottom: 30,
       backgroundColor: '#fff',
       width: Dimensions.get('window').width,
 
@@ -93,7 +97,6 @@ marginBottom: 30,
       },
       button: {
         width: 300,
-        height: 60,
         fontSize: 18,
         alignItems: 'center',
         backgroundColor: '#000080',
@@ -110,4 +113,4 @@ marginBottom: 30,
         color: "#fff",
       },
 });
-export default start_student;
+export default Start_student;

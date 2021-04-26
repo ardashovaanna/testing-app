@@ -1,19 +1,36 @@
 import React from 'react';
-
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from "react-native";
 import axios from 'react-native-axios';
-import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image, ActivityIndicator } from "react-native";
+// import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image, ActivityIndicator } from "react-native";
+import Start_student from "./start_student";
+import {ContextData} from "../../Context";
 
 class SecondPage extends React.Component {
 
-  state={
-    username:"",
-    group:""
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      username:"",
+      group:"",
+      connectData:"",
+    };
+    this.changeSerch = this.changeSerch.bind(this);
+
   }
 
+  changeSerch() {
+    this.setState({
+      connectData: 'Студент не найден',
+    });
+  }
+
+
  postData = () => {
+    this.context.userName = this.state.username
+    this.context.group = this.state.group
     let self = this
-  axios.post('http://192.168.0.5:8000/find',{
+  axios.post('http://192.168.8.101:8000/find',{
     username: this.state.username,
     group: this.state.group
   })
@@ -23,16 +40,17 @@ class SecondPage extends React.Component {
           console.log('Студент обнаружен')
               self.props.navigation.navigate('Тестирование')
         }else {
-          console.log('Студент не обнаружен')
+          self.changeSerch()
         }
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch(function (err) {
+        console.log(err)
       });
 }
   render() {
-  
+
     return (
+
       <View style={styles.container}>
         <View style={styles.imagecontainer}>
         <Image
@@ -45,7 +63,6 @@ class SecondPage extends React.Component {
       />
       </View>
       <View style={styles.topVoid} />
-
 
       <View style={styles.loginForm}>
         <TextInput
@@ -62,7 +79,7 @@ class SecondPage extends React.Component {
           placeholderTextColor="grey"
           onChangeText={group => this.setState({group})}
         />
-       
+       <Text>{this.state.connectData}</Text>
      
 
       </View>
@@ -77,6 +94,8 @@ class SecondPage extends React.Component {
   );
 }
 }
+
+SecondPage.contextType = ContextData;
 
 const styles = StyleSheet.create({
   container: {
@@ -124,7 +143,6 @@ const styles = StyleSheet.create({
   
     button: {
       width: 250,
-      height: 60,
       fontSize: 18,
       alignItems: 'center',
       backgroundColor: '#000080',
