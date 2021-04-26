@@ -4,7 +4,7 @@ import { StyleSheet, CheckBox, Text, TextInput, View, Image, TouchableOpacity } 
 import { Dimensions } from 'react-native'
 import {ContextData} from "../../../../Context";
 
-export default function App() {
+export default function App(props) {
 	const questions = [
 		{
 			questionText: 'Компьютер – это:',
@@ -129,7 +129,9 @@ export default function App() {
 					 </View>
 			) : (
 				<>
-				  <View style={styles.header}></View>
+				  <View style={styles.header}>
+					    <Text  style={styles.student}>{props.userName}    {props.group}</Text>
+</View>
 		
 		<View style={styles.imagecontainer}>
   <Text  style={styles.quizText}>Вопрос №{currentQuestion + 1} </Text>  
@@ -150,8 +152,9 @@ export default function App() {
 								</View>
 
 );
-  }
+	}
 
+App.contextType = ContextData;
 
 const styles = StyleSheet.create({
 

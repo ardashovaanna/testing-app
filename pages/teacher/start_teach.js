@@ -65,7 +65,7 @@ postReq(){
       </View>
       <TouchableOpacity
       style={styles.button}
-      onPress={() => this.props.navigation.navigate('Quiz')}>
+      onPress={() => this.props.navigation.navigate('Журнал')}>
       <Text style={styles.btnText}> Войти </Text>
     </TouchableOpacity>
 
