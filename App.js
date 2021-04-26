@@ -13,7 +13,7 @@ import mark from './pages/student/mark';
 import ProgressPage from './pages/ProgressPage';
 import splashscreen from './pages/splashscreen';
 import {ContextData} from './Context'
-
+import Quiz from './pages/student/final/src/App'
 
 const Stack = createStackNavigator();
 
@@ -68,6 +68,10 @@ class App extends React.Component {
           <Stack.Screen
             name="Журнал"
             component={viewing_results}
+          />
+          <Stack.Screen
+            name="Quiz"
+            component={Quiz}
           />
         </Stack.Navigator>
       </NavigationContainer>

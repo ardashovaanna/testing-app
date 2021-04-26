@@ -88,6 +88,8 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       flex: 1,
+      marginBottom:100,
+      height:150,
       backgroundColor: '#fff',
       width: Dimensions.get('window').width,
 

@@ -30,7 +30,7 @@ class SecondPage extends React.Component {
     this.context.userName = this.state.username
     this.context.group = this.state.group
     let self = this
-  axios.post('http://192.168.8.101:8000/find',{
+  axios.post('http://192.168.43.139:8000/find',{
     username: this.state.username,
     group: this.state.group
   })
@@ -38,7 +38,7 @@ class SecondPage extends React.Component {
         console.log(response.data);
         if (response.data === true){
           console.log('Студент обнаружен')
-              self.props.navigation.navigate('Тестирование')
+              self.props.navigation.navigate('Quiz')
         }else {
           self.changeSerch()
         }
