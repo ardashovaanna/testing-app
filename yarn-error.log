@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+  C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add react-native-svg-charts
 
 PATH: 
   C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\PROGRA~2\Borland\CBUILD~1\Bin;C:\PROGRA~2\Borland\CBUILD~1\Projects\Bpl;C:\Program Files (x86)\Borland\Delphi7\Bin;C:\Program Files (x86)\Borland\Delphi7\Projects\Bpl\;C:\Program Files (x86)\Intel\TXE Components\iCLS\;C:\Program Files\Intel\TXE Components\iCLS\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\TXE Components\DAL\;C:\Program Files (x86)\Intel\TXE Components\DAL\;C:\Program Files\Intel\TXE Components\IPT\;C:\Program Files (x86)\Intel\TXE Components\IPT\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;c:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;c:\Program Files\Microsoft SQL Server\110\Tools\Binn\;c:\Program Files\Microsoft SQL Server\110\DTS\Binn\;c:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;c:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Users\Admin\AppData\Local\Microsoft\WindowsApps;C:\Users\Admin\AppData\Local\GitHubDesktop\bin;C:\Users\Admin\.dotnet\tools;C:\Users\Admin\AppData\Roaming\npm;C:\Program Files\JetBrains\WebStorm 2020.3.3\bin;;C:\Users\Admin\AppData\Local\Programs\Microsoft VS Code\bin
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\Users\Admin\Desktop\testing-app-test\node_modules\@popperjs\core\dist\esm\dom-utils'
+  Error: EPERM: operation not permitted, unlink 'C:\Users\Admin\Desktop\testing-app-test\node_modules\@babel\generator\node_modules\.bin'
 
 npm manifest: 
   {
@@ -27,6 +27,8 @@ npm manifest:
       "eject": "expo eject"
     },
     "dependencies": {
+      "@progress/kendo-react-charts": "^4.5.0",
+      "@progress/kendo-theme-material": "^3.32.0",
       "@react-native-community/masked-view": "^0.1.10",
       "@react-navigation/bottom-tabs": "^5.11.10",
       "@react-navigation/drawer": "^5.12.5",
@@ -35,6 +37,7 @@ npm manifest:
       "expo": "^41.0.1",
       "expo-status-bar": "~1.0.4",
       "global": "^4.4.0",
+      "hammerjs": "^2.0.8",
       "radio-button": "^0.0.2",
       "react": "16.13.1",
       "react-dom": "16.13.1",
@@ -1774,6 +1777,48 @@ Lockfile:
       "@babel/runtime" "^7.7.2"
       regenerator-runtime "^0.13.3"
   
+  "@progress/kendo-charts@^1.17.0":
+    version "1.18.1"
+    resolved "https://registry.yarnpkg.com/@progress/kendo-charts/-/kendo-charts-1.18.1.tgz#aed557d9618a8f90c1e7273c23ccd9f5b108c5b4"
+    integrity sha512-dxJ+RIoUKfbcRo/6A4e3NYKD85UmlTQgm3iTKxAU8pcGxNJmyKawzutmUEzXon3dboKvMm/8SBPNXY3OLJ1niA==
+  
+  "@progress/kendo-popup-common@^1.2.2":
+    version "1.8.0"
+    resolved "https://registry.yarnpkg.com/@progress/kendo-popup-common/-/kendo-popup-common-1.8.0.tgz#02ec32974762f30bdb2bb968e3c5b73c76c82c33"
+    integrity sha512-/cu0nV+3tHKPEE/bUbJTJHv6t8BMYpwI3uVOYENASYy+ZK1dlOfuRhdpSGH85glAH6NMtr/5pYOPojuXFFz/8A==
+  
+  "@progress/kendo-react-charts@^4.5.0":
+    version "4.5.0"
+    resolved "https://registry.yarnpkg.com/@progress/kendo-react-charts/-/kendo-react-charts-4.5.0.tgz#aecad4dac19ac2a7486d399814a692d43e7dbbd0"
+    integrity sha512-cJMkdwxnGnOpl37KNK8LarYzTNUOF3NTVWhe386TyzNIksqH0KiN7vIWFwq9zpmgjWzLcyVrcfmOi1BsqoOThw==
+    dependencies:
+      "@progress/kendo-charts" "^1.17.0"
+      "@progress/kendo-react-common" "4.5.0"
+      "@progress/kendo-react-popup" "4.5.0"
+      prop-types "^15.6.0"
+  
+  "@progress/kendo-react-common@4.5.0":
+    version "4.5.0"
+    resolved "https://registry.yarnpkg.com/@progress/kendo-react-common/-/kendo-react-common-4.5.0.tgz#f6b0d48db8e5a37ab4beae26f9ea096e4296431a"
+    integrity sha512-0R1e0zNmwy7088gIx1QIDBeRE4oJ68by5am8rk+FpFEFFADBgYuo2bzjitbMHSlc/NB0vVX7MQwv7l1O4GGnOw==
+    dependencies:
+      "@telerik/kendo-draggable" "^2.1.0"
+      prop-types "^15.6.0"
+  
+  "@progress/kendo-react-popup@4.5.0":
+    version "4.5.0"
+    resolved "https://registry.yarnpkg.com/@progress/kendo-react-popup/-/kendo-react-popup-4.5.0.tgz#7d450adb5fb4b7ac787a64ccf9b5ab825b6a21c0"
+    integrity sha512-5l2WXD4E6LuYE23kVPHqW8HuYWq4QrZW5MbuHbdOzFPGE8UziAiyQdtkMCBRslBDJYhrV4pNNNnpulIiBVCrSA==
+    dependencies:
+      "@progress/kendo-popup-common" "^1.2.2"
+      "@progress/kendo-react-common" "4.5.0"
+      prop-types "^15.6.0"
+  
+  "@progress/kendo-theme-material@^3.32.0":
+    version "3.32.0"
+    resolved "https://registry.yarnpkg.com/@progress/kendo-theme-material/-/kendo-theme-material-3.32.0.tgz#aaaa3381fca901056607b56360e6d08b740611a6"
+    integrity sha512-dABCg35JjMycCIbfdXMig8CW9nz7t1cRnQG6dr2arsqdEvIHmU590pDt63IbQHHrMRL/mZJY6qUGYuA9Hczb1g==
+  
   "@react-native-community/cli-debugger-ui@^4.13.1":
     version "4.13.1"
     resolved "https://registry.yarnpkg.com/@react-native-community/cli-debugger-ui/-/cli-debugger-ui-4.13.1.tgz#07de6d4dab80ec49231de1f1fbf658b4ad39b32c"
@@ -1949,6 +1994,11 @@ Lockfile:
     dependencies:
       color "^3.1.3"
       react-native-iphone-x-helper "^1.3.0"
+  
+  "@telerik/kendo-draggable@^2.1.0":
+    version "2.2.1"
+    resolved "https://registry.yarnpkg.com/@telerik/kendo-draggable/-/kendo-draggable-2.2.1.tgz#27d86fd5b3273676b744bd82dbcebfffd911ad5c"
+    integrity sha512-qmuRJnjByOIjSKi0BKYK7fJ/+ITgL0aumc4IRIEwiYAQgDJWumuSpAOp2p8ctIWzP0JfEUmITs6ziJaoyKIYwQ==
   
   "@types/hammerjs@^2.0.36":
     version "2.0.39"
@@ -3730,6 +3780,11 @@ Lockfile:
     version "4.2.6"
     resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.6.tgz#ff040b2b0853b23c3d31027523706f1885d76bee"
     integrity sha512-nTnJ528pbqxYanhpDYsi4Rd8MAeaBA67+RZ10CM1m3bTAVFEDcd5AuA4a6W5YkGZ1iNXHzZz8T6TBKLeBuNriQ==
+  
+  hammerjs@^2.0.8:
+    version "2.0.8"
+    resolved "https://registry.yarnpkg.com/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
+    integrity sha1-BO93hiz/K7edMPdpIJWTAiK/YPE=
   
   has-ansi@^2.0.0:
     version "2.0.0"

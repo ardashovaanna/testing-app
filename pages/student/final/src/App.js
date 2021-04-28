@@ -3,6 +3,8 @@ import { render } from 'react-dom';
 import { StyleSheet, CheckBox, Text, TextInput, View, Image, TouchableOpacity } from "react-native";
 import { Dimensions } from 'react-native'
 import {ContextData} from "../../../../Context";
+import CircularProgress from './CircularProgress';
+
 
 export default function App(props) {
 	const questions = [
@@ -113,6 +115,8 @@ export default function App(props) {
 		} else {
 			setShowScore(true);
 		}
+
+	
 	};
 
 	return (
@@ -126,6 +130,9 @@ export default function App(props) {
 					Количество набранных баллов: </Text>
 			<Text style={styles.resultText}>
 					 {score} из {questions.length}</Text>
+					 <View style={styles.progress}>
+					 <CircularProgress percentage={score} progressColor={'#000080'}>
+                     <Text style={{ fontSize:54 , color: "white" }}>{score}</Text></CircularProgress></View>
 					 </View>
 			) : (
 				<>
@@ -204,7 +211,9 @@ const styles = StyleSheet.create({
 		marginLeft: 10
       },
 
-
+progress:{
+marginTop:70
+},
       imagecontainer: {
       marginBottom: 30,
       alignItems: 'center',
