@@ -2,77 +2,30 @@
 import React from 'react';
 import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity } from 'react-native';
 import { Dimensions } from 'react-native'
+import axios from 'react-native-axios';
+import {ContextData} from "../../Context";
 
-function Item({ item }) {
-  return (
-    <View style={styles.listItem}>
-      <View style={styles.name_style}>
-        <Text style={{fontWeight:"bold"}}>{item.name}</Text>
-        <Text>{item.position}</Text>
-      </View>
-        <Text style={styles.text_mark}>Оценка</Text>
-    </View>
-  );
-}
+
+  
 class viewing_results extends React.Component {
-  state = {
-    data:[
-        {
-            "name": "ФИО",
-            "position": "Группа",
-        },
-        {
-          "name": "ФИО",
-          "position": "Группа",
-      },{
-        "name": "ФИО",
-        "position": "Группа",
-    },{
-      "name": "ФИО",
-      "position": "Группа",
-  },{
-    "name": "ФИО",
-    "position": "Группа",
-},{
-  "name": "ФИО",
-  "position": "Группа",
-},{
-  "name": "ФИО",
-  "position": "Группа",
-},{
-  "name": "ФИО",
-  "position": "Группа",
-},{
-  "name": "ФИО",
-  "position": "Группа",
-},{
-  "name": "ФИО",
-  "position": "Группа",
-},{
-  "name": "ФИО",
-  "position": "Группа",
-},
-    ]
-  }
+ 
 
-
-  render(){
+  render(props){
     return (
+
       <View style={styles.container}>
         <View style={styles.header}>
   <Text  style={styles.student}>Имя преподавателя</Text>  
   
         </View>  
-        <FlatList
-          style={styles.flat}
-          data={this.state.data}
-          renderItem={({ item }) => <Item item={item}/>}
-          keyExtractor={item => item.email}
-        />
+        <Text style={styles.text_mark}>{context.username}</Text>
+        <Text>{group}</Text>
+        <Text style={styles.text_mark}>Оценка</Text>       
       </View>
     );
   }
 }
+viewing_results.contextType = ContextData;
 
 const styles = StyleSheet.create({
   container: {
