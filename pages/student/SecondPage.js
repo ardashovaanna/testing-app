@@ -27,7 +27,7 @@ class SecondPage extends React.Component {
 
 
  postData = () => {
-    this.context.userName = this.state.username
+    this.context.username = this.state.username
     this.context.group = this.state.group
     let self = this
   axios.post('http://192.168.43.139:8000/find',{
@@ -85,7 +85,6 @@ class SecondPage extends React.Component {
       </View>
       <TouchableOpacity
       style={styles.button}
-      // onPress={() => this.props.navigation.navigate('Тестирование')}>
       onPress={() => this.postData()}>
       <Text style={styles.btnText}> Начать </Text>
     </TouchableOpacity>

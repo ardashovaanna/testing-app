@@ -10,7 +10,7 @@ class Start_student extends React.Component {
     return (
   <View style={styles.container}>
   <View style={styles.header}>
-  <Text  style={styles.student}>{this.context.userName}    {this.context.group}</Text>
+  <Text  style={styles.student}>{this.context.username}    {this.context.group}</Text>
         </View>
 
 

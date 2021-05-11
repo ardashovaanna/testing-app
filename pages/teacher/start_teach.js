@@ -1,28 +1,38 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from "react-native";
 import axios from 'react-native-axios';
+import {ContextData} from "../../Context";
+
 class start_teach extends React.Component {
 
   constructor(props) {
     super(props);
     this.state={
-      usermame:'',
-      password:'',
-    }
-
+      usermame:"",
+      password:"",
+      connectData:"",
+    };
+    this.changeSerch = this.changeSerch.bind(this);
 
   }
-postReq(){
-    axios.post('http://192.168.8.101:8000/find-teacher',{
-  username: this.state.username,
-  password: this.state.password
-})
-    .then(function (response) {
-      console.log(response.data);
-    })
-    .catch(function (err) {
-      console.log(err)
-    });}
+
+  changeSerch() {
+    this.setState({
+      connectData: 'Профиль не найден',
+    });
+  }
+
+  postData = () => {
+    this.context.username = this.state.username
+    this.context.password = this.state.password
+    let self = this
+  axios.post('http://192.168.43.139:8000/find',{
+    username: this.state.username,
+    password: this.state.password
+  })
+   self.props.navigation.navigate('Журнал')
+     
+}
 
 
 
@@ -65,7 +75,7 @@ postReq(){
       </View>
       <TouchableOpacity
       style={styles.button}
-      onPress={() => this.props.navigation.navigate('Журнал')}>
+      onPress={() => this.postData()}>
       <Text style={styles.btnText}> Войти </Text>
     </TouchableOpacity>
 
@@ -73,6 +83,7 @@ postReq(){
   );
 }
 }
+start_teach.contextType = ContextData;
 
 const styles = StyleSheet.create({
 container: {
