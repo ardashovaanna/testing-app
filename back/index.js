@@ -5,7 +5,7 @@ var app = express()
 
 app.use(express.json())
 
-app.listen(8000, ()=> `server start in port :8000`)
+app.listen(8001, ()=> `server start in port :8001`)
 
 moongose.connect('mongodb+srv://Manuelca:89145091779@cluster0.mut5n.mongodb.net/my_db?retryWrites=true&w=majori',{
     useNewUrlParser: true,
@@ -24,8 +24,18 @@ const studentsSchema= new moongose.Schema({
         required: true,
     }
 });
-
+const teachSchema= new moongose.Schema({
+    name:{
+        type:String,
+        required: true,
+    },
+    pass:{
+        type:String,
+        required: true,
+    }
+});
 const students = moongose.model('students', studentsSchema);
+const teach = moongose.model('teach', teachSchema);
 
 app.get('/register-student', (req,res) =>{
     students.create({
@@ -69,21 +79,21 @@ app.post('/find', (req,res) =>{
         }
     })
 })
-app.post('/find-teacher', (req,res) =>{
+app.post('/find-teach', (req,res) =>{
     res.set({
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE',
         'Access-Control-Allow-Headers': 'Origin, X-Requested-With, json, Content-Type, Accept',
     })
     var userName = req.body.username
-    var password = req.body.password
-    console.log(userName + '' + password)
-    res.send(`${userName} ${password}`)
-    // students.findOne({name: userName, group:group}, function(err,obj){
-    //     if (obj === null){
-    //         res.send('false')
-    //     }else if (obj.name === userName){
-    //         res.send('true')
-    //     }
-    // })
+    var group = req.body.password
+    console.log(userName+group)
+    students.findOne({name: userName, group:group}, function(err,obj){
+        console.log(obj)
+        if (obj === null){
+            res.send('false')
+        }else if (obj.name === userName){
+            res.send('true')
+        }
+    })
 })

@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity } from 'react-native';
 import { Dimensions } from 'react-native'
 import {ContextData} from "../../Context";
+import axios from 'react-native-axios';
 
 
 
@@ -19,6 +20,7 @@ function Item({ item }) {
 }
 class viewing_results extends React.Component {
   state = {
+    newData:[],
     data:[
         {
             "name": "ФИО",
@@ -60,10 +62,16 @@ class viewing_results extends React.Component {
 
 
   render(props){
+      axios.get(`http://192.168.0.4:8001/find-students`)
+          .then(res => {
+            const persons = res.data;
+            this.state.newData = persons
+            console.log(persons)
+          })
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-  <Text  style={styles.student}> {this.context.username} </Text>  
+  <Text  style={styles.student}> {this.context.username} </Text>
   
         </View>  
         <FlatList
