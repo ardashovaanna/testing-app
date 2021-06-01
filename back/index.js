@@ -87,7 +87,6 @@ app.post('/find-teach', (req,res) =>{
     })
     var userName = req.body.username
     var group = req.body.password
-    console.log(userName+group)
     students.findOne({name: userName, group:group}, function(err,obj){
         console.log(obj)
         if (obj === null){

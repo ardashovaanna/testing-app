@@ -12,71 +12,42 @@ function Item({ item }) {
     <View style={styles.listItem}>
       <View style={styles.name_style}>
         <Text style={{fontWeight:"bold"}}>{item.name}</Text>
-        <Text>{item.position}</Text>
+        <Text>{item.group}</Text>
       </View>
-        <Text style={styles.text_mark}>Оценка</Text>
+        <Text style={styles.text_mark}>{"Оценка " + item.rating}</Text>
     </View>
   );
 }
 class viewing_results extends React.Component {
-  state = {
-    newData:[],
-    data:[
-        {
-            "name": "ФИО",
-            "position": "Группа",
-        },
-        {
-          "name": "ФИО",
-          "position": "Группа",
-      },{
-        "name": "ФИО",
-        "position": "Группа",
-    },{
-      "name": "ФИО",
-      "position": "Группа",
-  },{
-    "name": "ФИО",
-    "position": "Группа",
-},{
-  "name": "ФИО",
-  "position": "Группа",
-},{
-  "name": "ФИО",
-  "position": "Группа",
-},{
-  "name": "ФИО",
-  "position": "Группа",
-},{
-  "name": "ФИО",
-  "position": "Группа",
-},{
-  "name": "ФИО",
-  "position": "Группа",
-},{
-  "name": "ФИО",
-  "position": "Группа",
-},
-    ]
+  constructor(props) {
+    super(props);
+    this.state = {
+    }
+  }
+
+  componentDidMount() {
+    axios.get(`http://192.168.43.76:8001/find-students`)
+        .then(res => {
+          this.setState({newData: res.data});
+          this.setState({name: this.state.newData[3].name});
+          console.log(this.state)
+        })
+
+
   }
 
 
-  render(props){
-      axios.get(`http://192.168.0.4:8001/find-students`)
-          .then(res => {
-            const persons = res.data;
-            this.state.newData = persons
-            console.log(persons)
-          })
+  render(){
+
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-  <Text  style={styles.student}> {this.context.username} </Text>
+  <Text  style={styles.student}> {this.state.name} </Text>
   
         </View>  
         <FlatList
           style={styles.flat}
-          data={this.state.data}
+          data={this.state.newData}
           renderItem={({ item }) => <Item item={item}/>}
           keyExtractor={item => item.email}
         />
