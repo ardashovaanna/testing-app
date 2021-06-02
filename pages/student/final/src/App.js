@@ -7,6 +7,7 @@ import CircularProgress from './CircularProgress';
 
 
 export default function App(props) {
+	
 	const questions = [
 		{
 			questionText: 'Компьютер – это:',
@@ -121,6 +122,8 @@ export default function App(props) {
 
 	return (
 		
+	
+		
 		<View style={styles.container}>
 		{showScore ? (
 			
@@ -132,12 +135,18 @@ export default function App(props) {
 					 {score} из {questions.length}</Text>
 					 <View style={styles.progress}>
 					 <CircularProgress percentage={score} progressColor={'#000080'}>
-                     <Text style={{ fontSize:54 , color: "white" }}>{score}</Text></CircularProgress></View>
+                     <Text style={{ fontSize:54 , color: "white" }}>{score}</Text></CircularProgress>
+					
+					 </View>
+					 <TouchableOpacity
+      style={styles.button}>
+      <Text style={styles.btnText}> Сохранить результат</Text>
+    </TouchableOpacity>
 					 </View>
 			) : (
 				<>
 				  <View style={styles.header}>
-					    <Text  style={styles.student}>{props.userName}    {props.group}</Text>
+					    <Text  style={styles.student}>{props.username}    {props.group}</Text>
 </View>
 		
 		<View style={styles.imagecontainer}>
@@ -187,6 +196,23 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width,
 		height:50
         },
+		button: {
+			width: 250,
+			fontSize: 18,
+			alignItems: 'center',
+			backgroundColor: '#000080',
+			textShadowColor: '#FFFFFF',
+			padding: 10,
+			height: 45,
+			borderRadius: 8,
+			elevation: 3,
+			justifyContent: "center",
+			marginTop: 80,
+			marginBottom:50,
+		  },
+		  btnText: {
+			color: "#fff",
+		  },
     student:{
       color: '#FFFFFF',
       fontSize: 18,
@@ -212,7 +238,7 @@ const styles = StyleSheet.create({
       },
 
 progress:{
-marginTop:70
+marginTop:70,
 },
       imagecontainer: {
       marginBottom: 30,

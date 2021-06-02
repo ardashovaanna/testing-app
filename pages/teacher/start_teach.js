@@ -23,10 +23,10 @@ class start_teach extends React.Component {
   }
 
   postData = () => {
-    // this.context.username = this.state.username
-    // this.context.password = this.state.password
+  this.context.username = this.state.username
+    this.context.password = this.state.password
     let self = this
-    axios.post('http://192.168.43.76:8001/find-teach',{
+    axios.post('http://192.168.43.139:8001/find-teach',{
       username: this.state.username,
       password: this.state.password
     })
