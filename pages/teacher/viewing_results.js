@@ -1,11 +1,10 @@
   
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Icon, Text, View, TextInput, FlatList, Image, Alert, TouchableOpacity } from 'react-native';
 import { Dimensions } from 'react-native'
 import {ContextData} from "../../Context";
 import axios from 'react-native-axios';
-import firebase from 'firebase';
-
+import { SearchBar } from 'react-native-elements';
 
 function Item({ item }) {
   return (
@@ -20,15 +19,34 @@ function Item({ item }) {
 }
 class viewing_results extends React.Component {
 
- 
+  state = {
+    search: '',
+  };
 
-  constructor(props) {
-    super(props);
-    this.state = {
+  updateSearch = (search) => {
+    this.setState({ search });
+  };
+
+
+    constructor(props) {
+      super(props);
+      this.state = {
+        date: '',
+      };
     }
-  }
 
   componentDidMount() {
+    var that = this;
+
+    var date = new Date().getDate(); 
+    var month = new Date().getMonth() + 1; 
+    var year = new Date().getFullYear(); 
+
+
+    that.setState({
+      date:
+        date + '/' + month + '/' + year,
+    });
     axios.get(`http://192.168.43.139:8001/find-students`)
         .then(res => {
           this.setState({newData: res.data});
@@ -41,7 +59,7 @@ class viewing_results extends React.Component {
 
 
   render(){
-
+    const { search } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -49,13 +67,29 @@ class viewing_results extends React.Component {
   
         </View>  
         <View style={styles.menu}>
-          <Text style={styles.calendar}>Июнь 2</Text>
+          <Text style={styles.calendar}> {this.state.date}</Text>
           
           <Image style={styles.calimage} source={{uri: 'https://img-premium.flaticon.com/png/512/265/265683.png?token=exp=1621054432~hmac=2dbee8c862934d5e3983fcaecf8fbea4', }}/>          
           <Image style={styles.searchimage} source={{uri: 'https://img-premium.flaticon.com/png/512/16/16492.png?token=exp=1621055229~hmac=f825b2f66e821b46fa61b6220a899261', }}/>          
           <Image style={styles.filtrimage} source={{uri: 'https://img-premium.flaticon.com/png/512/833/833329.png?token=exp=1621055524~hmac=a08e9813743d0b5e49b6b7433b4b0ba8', }}/>          
-
+       
+       <View style={styles.search}>
+      
+    <SearchBar
+              placeholder='Поиск'
+              onChangeText={this.updateSearch}
+              value={search}
+              lightTheme
+              clearIcon
+              inputStyle={{ backgroundColor: "white" }}
+              inputContainerStyle={{ backgroundColor: "white",   borderWidth: 1,
+              borderRadius:5, height:20, bottom:5}}
+          
+      />
+        </View>
    </View> 
+
+
         <FlatList
           style={styles.flat}
           data={this.state.newData}
@@ -75,7 +109,18 @@ const styles = StyleSheet.create({
   },
   flat:{
     flex: 1,
-    paddingTop: 10
+    paddingTop: 50
+  },
+  search:{
+    bottom:80,
+    left:5,
+  },
+  textInputs: {
+    width:280,
+    height: 40,
+    fontSize: 18,
+    borderColor:"#000000",
+   
   },
   name_style:{
 marginLeft: 20,
@@ -98,7 +143,7 @@ padding: 5
     marginLeft: 300,
     width: 30,
     height: 30,
-    bottom: 60
+    bottom: 15
   },
   filtrimage:{
     marginLeft: 250,
