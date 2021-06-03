@@ -1,6 +1,6 @@
   
 import React from 'react';
-import { StyleSheet, Icon, Text, View, TextInput, FlatList, Image, Alert, TouchableOpacity } from 'react-native';
+import { StyleSheet, ListItem, Icon, Text, View, TextInput, FlatList, Image, Alert, TouchableOpacity } from 'react-native';
 import { Dimensions } from 'react-native'
 import {ContextData} from "../../Context";
 import axios from 'react-native-axios';
@@ -20,8 +20,9 @@ function Item({ item }) {
 class viewing_results extends React.Component {
 
   state = {
-    search: '',
-  };
+    searchText: "",
+    data: [],
+    filteredData: []  };
 
   updateSearch = (search) => {
     this.setState({ search });
@@ -56,10 +57,18 @@ class viewing_results extends React.Component {
 
 
   }
-
+  search = (searchText) => {
+    this.setState({searchText: searchText});
+  
+    let filteredData = this.state.data.filter(function (item) {
+      return item.description.includes(searchText);
+    });
+  
+    this.setState({filteredData: filteredData});
+  };
 
   render(){
-    const { search } = this.state;
+  
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -70,18 +79,17 @@ class viewing_results extends React.Component {
           <Text style={styles.calendar}> {this.state.date}</Text>
           
           <Image style={styles.calimage} source={{uri: 'https://img-premium.flaticon.com/png/512/265/265683.png?token=exp=1621054432~hmac=2dbee8c862934d5e3983fcaecf8fbea4', }}/>          
-          <Image style={styles.searchimage} source={{uri: 'https://img-premium.flaticon.com/png/512/16/16492.png?token=exp=1621055229~hmac=f825b2f66e821b46fa61b6220a899261', }}/>          
-          <Image style={styles.filtrimage} source={{uri: 'https://img-premium.flaticon.com/png/512/833/833329.png?token=exp=1621055524~hmac=a08e9813743d0b5e49b6b7433b4b0ba8', }}/>          
        
        <View style={styles.search}>
       
-    <SearchBar
+       <SearchBar
               placeholder='Поиск'
-              onChangeText={this.updateSearch}
-              value={search}
-              lightTheme
-              clearIcon
-              inputStyle={{ backgroundColor: "white" }}
+              round={true}
+              lightTheme={true}
+              autoCapitalize='none'
+  autoCorrect={false}
+  onChangeText={this.search}
+  value={this.state.searchText}
               inputContainerStyle={{ backgroundColor: "white",   borderWidth: 1,
               borderRadius:5, height:20, bottom:5}}
           
@@ -91,11 +99,14 @@ class viewing_results extends React.Component {
 
 
         <FlatList
+          data={this.state.filteredData && this.state.filteredData.length > 0 ? this.state.filteredData : this.state.data}
           style={styles.flat}
           data={this.state.newData}
           renderItem={({ item }) => <Item item={item}/>}
           keyExtractor={item => item.email}
+          keyExtractor={(item) => 'item-${item.id}'}        
         />
+        
       </View>
     );
   }
@@ -109,11 +120,10 @@ const styles = StyleSheet.create({
   },
   flat:{
     flex: 1,
-    paddingTop: 50
+    paddingTop: 10
   },
   search:{
-    bottom:80,
-    left:5,
+    bottom:65,
   },
   textInputs: {
     width:280,
@@ -134,23 +144,10 @@ padding: 5
     fontSize: 20,
   },
   calimage:{
-    marginLeft: 15,
     width: 30,
     height: 30,
-    bottom: 30
-  },
-  searchimage:{
-    marginLeft: 300,
-    width: 30,
-    height: 30,
-    bottom: 15
-  },
-  filtrimage:{
-    marginLeft: 250,
-    width: 30,
-    height: 30,
-    bottom: 90
-  },
+    marginLeft: 240,
+    bottom: 74  },
   menu:{
     fontFamily: 'Roboto',
     fontSize: 22,
@@ -163,7 +160,8 @@ padding: 5
     },
   calendar:{
 fontSize: 20,
-marginLeft: 50
+marginLeft: 270,
+bottom: 44
   },
   listItem:{
     margin:5,
