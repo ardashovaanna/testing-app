@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
 import { render } from 'react-dom';
 import { StyleSheet, CheckBox, Text, TextInput, View, Image, TouchableOpacity } from "react-native";
 import { Dimensions } from 'react-native'
 import {ContextData} from "../../../../Context";
 import CircularProgress from './CircularProgress';
+import axios from 'react-native-axios';
 
 
-export default function App(props) {
+export default function Quiz(props) {
 	
 	const questions = [
 		{
@@ -120,15 +121,34 @@ export default function App(props) {
 	
 	};
 
+
+	const updateDB = () =>{
+		let self = this
+		axios.post('http://192.168.108.73:8001/updateUser',{
+			username: global.username,
+			group: global.group,
+			rating: score
+		})
+			.then(function (response) {
+				console.log(response.data);
+				if (response.data === true){
+					console.log('успешно')
+
+				}else {
+					self.changeSerch()
+				}
+			})
+			.catch(function (err) {
+				console.log(err)
+			});
+	}
+
 	return (
-		
-	
-		
 		<View style={styles.container}>
 		{showScore ? (
-			
+
 			<View style={styles.result}>
-            <View style={styles.resultHeader}></View>
+				<View style={styles.resultHeader}><Text>{global.username}   {global.group}</Text></View>
 			<Text style={styles.resultText}>
 					Количество набранных баллов: </Text>
 			<Text style={styles.resultText}>
@@ -136,9 +156,9 @@ export default function App(props) {
 					 <View style={styles.progress}>
 					 <CircularProgress percentage={score} progressColor={'#000080'}>
                      <Text style={{ fontSize:54 , color: "white" }}>{score}</Text></CircularProgress>
-					
+
 					 </View>
-					 <TouchableOpacity
+					 <TouchableOpacity onPress={updateDB}
       style={styles.button}>
       <Text style={styles.btnText}> Сохранить результат</Text>
     </TouchableOpacity>
@@ -146,11 +166,11 @@ export default function App(props) {
 			) : (
 				<>
 				  <View style={styles.header}>
-					    <Text  style={styles.student}>{props.username}    {props.group}</Text>
+					    <Text  style={styles.student}>{global.username}  {global.group}</Text>
 </View>
-		
+
 		<View style={styles.imagecontainer}>
-  <Text  style={styles.quizText}>Вопрос №{currentQuestion + 1} </Text>  
+  <Text  style={styles.quizText}>Вопрос №{currentQuestion + 1} </Text>
     <Text style={styles.textvoprosa} >{questions[currentQuestion].questionText}</Text>
   </View>
   <View style={styles.btncontainer}>
@@ -162,15 +182,14 @@ export default function App(props) {
 	 </TouchableOpacity>
     ))}
       </View>
-				
+
 				</>
 			)}
-								</View>
-
+		</View>
 );
 	}
 
-App.contextType = ContextData;
+Quiz.contextType = ContextData;
 
 const styles = StyleSheet.create({
 
@@ -291,7 +310,7 @@ marginTop:70,
 		alignContent: 'center'
       },
       btnText: {
-        color: "#fff", 
+        color: "#fff",
 		alignContent: 'center',
 		alignItems:'center',
 		fontSize: 14,
@@ -302,6 +321,6 @@ marginTop:70,
 		fontSize: 20,
 		alignContent: 'center',
 
-		
+
       },
 	});

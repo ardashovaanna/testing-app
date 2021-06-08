@@ -7,7 +7,7 @@ app.use(express.json())
 
 app.listen(8001, ()=> `server start in port :8001`)
 
-moongose.connect('mongodb+srv://Manuelca:89145091779@cluster0.mut5n.mongodb.net/my_db?retryWrites=true&w=majori',{
+moongose.connect('mongodb+srv://Manuelca:89145091779@cluster0.mut5n.mongodb.net/my_db?retryWrites=true&w=majority',{
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
@@ -20,6 +20,10 @@ const studentsSchema= new moongose.Schema({
         required: true,
     },
     group:{
+        type:String,
+        required: true,
+    },
+    rating:{
         type:String,
         required: true,
     }
@@ -96,3 +100,23 @@ app.post('/find-teach', (req,res) =>{
         }
     })
 })
+
+app.post('/updateUser', (req,res) =>{
+    res.set({
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE',
+        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, json, Content-Type, Accept',
+    })
+    var username = req.body.username
+    var group = req.body.group
+    var rating = req.body.rating
+    console.log(`${username}  ${group}  ${rating}`)
+    students.updateOne(
+        {name: `${username}`, group:`${group}`},              // критерий выборки
+        { $set: {rating : `${rating}`}},     // параметр обновления
+        {                           // доп. опции обновления
+            returnOriginal: false
+        },
+        function(err, result){
+            console.log(result + err);
+})    })

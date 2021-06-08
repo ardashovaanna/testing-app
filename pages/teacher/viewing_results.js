@@ -48,7 +48,7 @@ class viewing_results extends React.Component {
       date:
         date + '/' + month + '/' + year,
     });
-    axios.get(`http://192.168.43.139:8001/find-students`)
+    axios.get(`http://192.168.108.73:8001/find-students`)
         .then(res => {
           this.setState({newData: res.data});
           this.setState({name: this.state.newData[3].name});

@@ -13,7 +13,7 @@ import mark from './pages/student/mark';
 import ProgressPage from './pages/ProgressPage';
 import splashscreen from './pages/splashscreen';
 import {ContextData} from './Context'
-import Quiz from './pages/student/final/src/App'
+import Quiz from './pages/student/final/src/Quiz'
 
 const Stack = createStackNavigator();
 
