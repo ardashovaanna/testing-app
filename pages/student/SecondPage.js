@@ -30,7 +30,7 @@ class SecondPage extends React.Component {
     global.username = this.state.username
     global.group = this.state.group
     let self = this
-  axios.post('http://192.168.108.73:8001/find ',{
+  axios.post('http://192.168.0.4:8001/find ',{
     username: this.state.username,
     group: this.state.group
   })

@@ -124,7 +124,7 @@ export default function Quiz(props) {
 
 	const updateDB = () =>{
 		let self = this
-		axios.post('http://192.168.108.73:8001/updateUser',{
+		axios.post('http://192.168.0.4:8001/updateUser',{
 			username: global.username,
 			group: global.group,
 			rating: score
